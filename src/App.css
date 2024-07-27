@@ -1,38 +1,97 @@
-.App {
-  text-align: center;
+/* Notifiction Main Style Start */
+.notification-main-wrapper {
+  padding: 0 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Notifiction Main Style End */
+
+/* Notifiction Button Style Start */
+
+.notification-btn {
+  padding: 10px 20px;
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  -moz-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.notification-btn {
+  background-image: linear-gradient(to right, hsl(217, 100%, 62%), hsl(280, 100%, 62%));
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.notification-btn:hover {
+  background-position: 100% 0;
+  -moz-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+
+/* Notifiction Button Style End */
+
+
+
+/* Notifiction List Style Start */
+
+.notifiction-list {
+  list-style: none;
+  padding-left: 0;
+  width: 40%;
+}
+
+.notifiction-list .notifiction-list-item {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border-bottom: 1px solid #eae8e8;
+  padding: 12px 0;
 }
 
-.App-link {
-  color: #61dafb;
+.notifiction-list .notifiction-list-item .notifiction-read-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  -moz-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  background-image: linear-gradient(to right, hsl(217, 100%, 62%), hsl(280, 100%, 62%));
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Notifiction List Style End */
+
+
+
+
+/* Responsive Start */
+@media only screen and (max-width: 425px) {
+  .notification-btn {
+    width: 100%;
+    margin-bottom: 10px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .notifiction-list {
+    width: 100%;
+  }
+
+  .notifiction-list .notifiction-list-item .notifiction-read-btn {
+    font-size: 12px;
   }
 }
+
+
+/* Responsive End */
