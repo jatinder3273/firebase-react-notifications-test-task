@@ -11,6 +11,7 @@ type Notification = {
 
 const NotificationList: React.FC = () => {
     const [notifications, setNotifications] = useState<Notification[]>([]);
+    const [loader, setLoader] = useState<boolean>(true);
 
     /**
      * Handle this for mark as read notification
@@ -28,8 +29,6 @@ const NotificationList: React.FC = () => {
          * Geting the notification list real time when adding a new notification 
          */
         const unsubscribe = onSnapshot(notificationsQuery, (snapshot) => {
-            console.log("Hello ");
-
             const fetchedNotifications: Notification[] = snapshot.docs.map((doc) => ({
                 id: doc.id,
                 ...doc.data(),
@@ -37,6 +36,7 @@ const NotificationList: React.FC = () => {
             console.log(fetchedNotifications, "fetchedNotifications");
 
             setNotifications(fetchedNotifications);
+            setLoader(false)
         });
 
         return () => unsubscribe(); // Cleanup subscription on unmount
@@ -46,7 +46,7 @@ const NotificationList: React.FC = () => {
         <div className='notifiction-list-wrapper'>
             <h2 className='notifiction-list-heading'>Notifications List</h2>
             <ul className='notifiction-list'>
-                {notifications.map((notification) => (
+                {!loader && notifications.map((notification) => (
                     <li
                         className='notifiction-list-item'
                         key={notification.id}
@@ -58,6 +58,8 @@ const NotificationList: React.FC = () => {
                         )}
                     </li>
                 ))}
+                {!notifications.length && !loader ? <div>Data not found</div> : ""}
+                {loader ? <div>Loading...</div> : ""}
             </ul>
         </div>
     );
